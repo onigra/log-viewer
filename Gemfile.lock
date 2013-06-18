@@ -1,0 +1,240 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    actionmailer (3.2.13)
+      actionpack (= 3.2.13)
+      mail (~> 2.5.3)
+    actionpack (3.2.13)
+      activemodel (= 3.2.13)
+      activesupport (= 3.2.13)
+      builder (~> 3.0.0)
+      erubis (~> 2.7.0)
+      journey (~> 1.0.4)
+      rack (~> 1.4.5)
+      rack-cache (~> 1.2)
+      rack-test (~> 0.6.1)
+      sprockets (~> 2.2.1)
+    active_decorator (0.3.4)
+    activemodel (3.2.13)
+      activesupport (= 3.2.13)
+      builder (~> 3.0.0)
+    activerecord (3.2.13)
+      activemodel (= 3.2.13)
+      activesupport (= 3.2.13)
+      arel (~> 3.0.2)
+      tzinfo (~> 0.3.29)
+    activeresource (3.2.13)
+      activemodel (= 3.2.13)
+      activesupport (= 3.2.13)
+    activesupport (3.2.13)
+      i18n (= 0.6.1)
+      multi_json (~> 1.0)
+    addressable (2.3.4)
+    arel (3.0.2)
+    better_errors (0.9.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
+    builder (3.0.4)
+    bullet (4.6.0)
+      uniform_notifier
+    capistrano (2.15.4)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
+    chunky_png (1.2.8)
+    coderay (1.0.9)
+    coffee-rails (3.2.2)
+      coffee-script (>= 2.2.0)
+      railties (~> 3.2.0)
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.6.2)
+    commonjs (0.2.6)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    compass-colors (0.9.0)
+      compass (>= 0.8.7)
+    compass-rails (1.0.3)
+      compass (>= 0.12.2, < 0.14)
+    country_select (1.1.3)
+    debug_inspector (0.0.2)
+    erubis (2.7.0)
+    execjs (1.4.0)
+      multi_json (~> 1.0)
+    font-awesome-rails (3.2.1.0)
+      railties (>= 3.2, < 5.0)
+    fssm (0.2.10)
+    highline (1.6.19)
+    hike (1.2.3)
+    i18n (0.6.1)
+    journey (1.0.4)
+    jquery-cookie-rails (1.3.1)
+      jquery-rails (~> 2.0)
+      railties (>= 3.2.0, < 5.0)
+      thor (~> 0.14)
+      version (~> 1.0)
+    jquery-rails (2.3.0)
+      railties (>= 3.0, < 5.0)
+      thor (>= 0.14, < 2.0)
+    json (1.8.0)
+    launchy (2.3.0)
+      addressable (~> 2.3)
+    less (2.3.2)
+      commonjs (~> 0.2.6)
+    less-rails (2.3.3)
+      actionpack (>= 3.1)
+      less (~> 2.3.1)
+    letter_opener (1.1.1)
+      launchy (~> 2.2)
+    libv8 (3.3.10.4)
+    mail (2.5.4)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
+    mail_view (1.0.3)
+      tilt
+    method_source (0.8.1)
+    mime-types (1.23)
+    mini_portile (0.5.0)
+    multi_json (1.7.7)
+    mysql2 (0.3.11)
+    net-scp (1.1.1)
+      net-ssh (>= 2.6.5)
+    net-sftp (2.1.2)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.6.7)
+    net-ssh-gateway (1.2.0)
+      net-ssh (>= 2.6.5)
+    nokogiri (1.6.0)
+      mini_portile (~> 0.5.0)
+    polyglot (0.3.3)
+    powder (0.2.0)
+      thor (>= 0.11.5)
+    pry (0.9.12.2)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
+    pry-rails (0.3.1)
+      pry (>= 0.9.10)
+    quiet_assets (1.0.2)
+      railties (>= 3.1, < 5.0)
+    rack (1.4.5)
+    rack-cache (1.2)
+      rack (>= 0.4)
+    rack-ssl (1.3.3)
+      rack
+    rack-test (0.6.2)
+      rack (>= 1.0)
+    rails (3.2.13)
+      actionmailer (= 3.2.13)
+      actionpack (= 3.2.13)
+      activerecord (= 3.2.13)
+      activeresource (= 3.2.13)
+      activesupport (= 3.2.13)
+      bundler (~> 1.0)
+      railties (= 3.2.13)
+    rails-footnotes (3.7.9)
+      rails (>= 3.0.0)
+    rails3-generators (1.0.0)
+      railties (>= 3.0.0)
+    rails_config (0.3.3)
+      activesupport (>= 3.0)
+    railties (3.2.13)
+      actionpack (= 3.2.13)
+      activesupport (= 3.2.13)
+      rack-ssl (~> 1.3.2)
+      rake (>= 0.8.7)
+      rdoc (~> 3.4)
+      thor (>= 0.14.6, < 2.0)
+    rake (10.0.4)
+    rdoc (3.12.2)
+      json (~> 1.4)
+    sass (3.2.9)
+    sass-rails (3.2.6)
+      railties (~> 3.2.0)
+      sass (>= 3.1.10)
+      tilt (~> 1.3)
+    sassy-buttons (0.2)
+    seed-fu (2.2.0)
+      activerecord (~> 3.1)
+      activesupport (~> 3.1)
+    sextant (0.2.4)
+      rails (>= 3.2)
+    simple_form (2.1.0)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
+    slop (3.4.5)
+    sprockets (2.2.2)
+      hike (~> 1.2)
+      multi_json (~> 1.0)
+      rack (~> 1.0)
+      tilt (~> 1.1, != 1.3.0)
+    therubyracer (0.10.2)
+      libv8 (~> 3.3.10)
+    thor (0.18.1)
+    tilt (1.4.1)
+    treetop (1.4.14)
+      polyglot
+      polyglot (>= 0.3.1)
+    twitter-bootstrap-rails (2.2.7)
+      actionpack (>= 3.1)
+      execjs
+      rails (>= 3.1)
+      railties (>= 3.1)
+    tzinfo (0.3.37)
+    uglifier (2.1.1)
+      execjs (>= 0.3.0)
+      multi_json (~> 1.0, >= 1.0.2)
+    uniform_notifier (1.2.0)
+    version (1.0.0)
+    yard (0.8.6.1)
+    zurui-sass-rails (0.0.4)
+      railties (>= 3.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  active_decorator
+  better_errors
+  binding_of_caller
+  bullet
+  capistrano
+  coffee-rails
+  compass-colors
+  compass-rails
+  country_select
+  font-awesome-rails
+  jquery-cookie-rails
+  jquery-rails
+  json
+  less-rails
+  letter_opener
+  libv8 (~> 3.3.10)
+  mail_view
+  mysql2
+  nokogiri
+  powder
+  pry-rails
+  quiet_assets
+  rails (= 3.2.13)
+  rails-footnotes (>= 3.7.9)
+  rails3-generators
+  rails_config
+  rake
+  sass-rails
+  sassy-buttons
+  seed-fu
+  sextant
+  simple_form
+  therubyracer (~> 0.10.2)
+  twitter-bootstrap-rails
+  uglifier
+  yard
+  zurui-sass-rails
