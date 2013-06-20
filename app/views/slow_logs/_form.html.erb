@@ -1,0 +1,15 @@
+<%= simple_form_for @slow_log, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :server %>
+  <%= f.input :user %>
+  <%= f.input :host %>
+  <%= f.input :query_time %>
+  <%= f.input :lock_time %>
+  <%= f.input :rows_sent %>
+  <%= f.input :rows_examined %>
+  <%= f.input :execute %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                slow_logs_path, :class => 'btn' %>
+  </div>
+<% end %>

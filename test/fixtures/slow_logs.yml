@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  server: MyString
+  user: MyString
+  host: MyString
+  query_time: 1.5
+  lock_time: 1.5
+  rows_sent: 1
+  rows_examined: 1
+  execute: MyText
+
+two:
+  server: MyString
+  user: MyString
+  host: MyString
+  query_time: 1.5
+  lock_time: 1.5
+  rows_sent: 1
+  rows_examined: 1
+  execute: MyText

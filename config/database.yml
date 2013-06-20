@@ -14,9 +14,10 @@ development:
   reconnect: false
   database: log_viewer_development
   pool: 5
-  username: root
-  password: naruhaya
-  socket: /tmp/mysql.sock
+  host: 192.168.50.16
+  username: develop
+  password: password
+  socket: /var/lib/mysql/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -27,9 +28,10 @@ test:
   reconnect: false
   database: log_viewer_test
   pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+  host: 192.168.50.16
+  username: develop
+  password: password
+  socket: /var/lib/mysql/mysql.sock
 
 production:
   adapter: mysql2

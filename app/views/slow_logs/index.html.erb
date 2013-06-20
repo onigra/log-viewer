@@ -1,0 +1,37 @@
+<%- model_class = SlowLog -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th><%= model_class.human_attribute_name(:server) %></th>
+      <th><%= model_class.human_attribute_name(:user) %></th>
+      <th><%= model_class.human_attribute_name(:host) %></th>
+      <th><%= model_class.human_attribute_name(:query_time) %></th>
+      <th><%= model_class.human_attribute_name(:lock_time) %></th>
+      <th><%= model_class.human_attribute_name(:rows_sent) %></th>
+      <th><%= model_class.human_attribute_name(:rows_examined) %></th>
+      <th><%= model_class.human_attribute_name(:execute) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @slow_logs.each do |slow_log| %>
+      <tr>
+        <td><%= link_to t('.show', :default => t("helpers.links.show")), slow_log_path(slow_log), :class => 'btn btn-info btn-mini' %></td>
+        <td><%= slow_log.server %></td>
+        <td><%= slow_log.user %></td>
+        <td><%= slow_log.host %></td>
+        <td><%= slow_log.query_time %></td>
+        <td><%= slow_log.lock_time %></td>
+        <td><%= slow_log.rows_sent %></td>
+        <td><%= slow_log.rows_examined %></td>
+        <td><%= slow_log.execute %></td>
+        <td><%=l slow_log.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

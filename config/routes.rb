@@ -1,4 +1,8 @@
 LogViewer::Application.routes.draw do
+  resources :slow_logs
+
+
+  root :to => "slow_logs#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
