@@ -1,6 +1,20 @@
 <%- model_class = SlowLog -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+
+<div class="row-fluid">
+  <div class="span3">
+    <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  </div>
+
+  <div class="span6 offset1">
+    <p class="lead">Search For Create Time</p>
+    <div class="form-search">
+      <%= search_form_for @q do |f| %>
+        <%= f.text_field :created_at_gteq, :include_blank => true, :class => "datepicker", :placeholder => "From Date" %> 〜
+        <%= f.text_field :created_at_lteq, :include_blank => true, :class => "datepicker", :placeholder => "To Date" %>
+        <%= f.submit "Search", :class => "btn btn-warning"%>
+      <% end%>
+    </div>
+  </div>
 </div>
 
 <%= paginate @slow_logs %>
@@ -31,13 +45,12 @@
         <td><%= slow_log.lock_time %></td>
         <td><%= slow_log.rows_sent %></td>
         <td><%= slow_log.rows_examined %></td>
-        <td><pre class="prettyprint linenums"><%= slow_log.execute %></pre></td>
+        <td><pre class="prettyprint"><%= slow_log.execute %></pre></td>
         <td><%= slow_log.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br />
 <%= paginate @slow_logs %>
 
