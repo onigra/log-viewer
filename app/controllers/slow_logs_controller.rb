@@ -2,7 +2,7 @@ class SlowLogsController < ApplicationController
   # GET /slow_logs
   # GET /slow_logs.json
   def index
-    @slow_logs = SlowLog.all
+    @slow_logs = SlowLog.order("id DESC").page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
