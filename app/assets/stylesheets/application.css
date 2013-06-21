@@ -11,5 +11,6 @@
  *= require_self
  *= require font-awesome
  *= require bootstrap_and_overrides
+ *= require jquery.ui.all
  *= require google-code-prettify/prettify
  */

@@ -42,6 +42,9 @@ gem 'nokogiri'
 
 # ページャ
 gem 'kaminari'
+
+# 検索機能
+gem 'ransack'
  
 # Seed管理
 gem 'seed-fu'
@@ -51,6 +54,7 @@ gem 'quiet_assets'
  
 group :assets do
   gem 'coffee-rails'
+  gem 'jquery-ui-rails'
   gem 'therubyracer', "~> 0.10.2"
   gem 'uglifier'
   gem 'libv8', '~> 3.3.10'
