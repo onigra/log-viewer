@@ -1,33 +1,40 @@
 <%- model_class = SlowLog -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
-</div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:server) %>:</strong></dt>
-  <dd><%= @slow_log.server %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:user) %>:</strong></dt>
-  <dd><%= @slow_log.user %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:host) %>:</strong></dt>
-  <dd><%= @slow_log.host %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:query_time) %>:</strong></dt>
-  <dd><%= @slow_log.query_time %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:lock_time) %>:</strong></dt>
-  <dd><%= @slow_log.lock_time %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:rows_sent) %>:</strong></dt>
-  <dd><%= @slow_log.rows_sent %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:rows_examined) %>:</strong></dt>
-  <dd><%= @slow_log.rows_examined %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:execute) %>:</strong></dt>
-  <dd><%= @slow_log.execute %></dd>
-</dl>
-
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              slow_logs_path, :class => 'btn'  %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+<%= link_to t('.back', :default => t("helpers.links.back")), slow_logs_path, :class => 'btn'  %>
+<%# link_to t('.destroy', :default => t("helpers.links.destroy")),
               slow_log_path(@slow_log),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
+
+<div class="row-fluid">
+  <div class="span4">
+    <dl class="dl-horizontal">
+      <dt><strong><%= model_class.human_attribute_name(:server) %>:</strong></dt>
+      <dd><%= @slow_log.server %></dd>
+    
+      <dt><strong><%= model_class.human_attribute_name(:user) %>:</strong></dt>
+      <dd><%= @slow_log.user %></dd>
+    
+      <dt><strong><%= model_class.human_attribute_name(:host) %>:</strong></dt>
+      <dd><%= @slow_log.host %></dd>
+    
+      <dt><strong><%= model_class.human_attribute_name(:query_time) %>:</strong></dt>
+      <dd><%= @slow_log.query_time %></dd>
+    
+      <dt><strong><%= model_class.human_attribute_name(:rows_sent) %>:</strong></dt>
+      <dd><%= @slow_log.rows_sent %></dd>
+    
+      <dt><strong><%= model_class.human_attribute_name(:rows_examined) %>:</strong></dt>
+      <dd><%= @slow_log.rows_examined %></dd>
+    
+      <dt><strong><%= model_class.human_attribute_name(:lock_time) %>:</strong></dt>
+      <dd><%= @slow_log.lock_time %></dd>
+    </dl>
+  </div>
+
+  <div class="span7">
+    <pre class="prettyprint linenums"><%= @slow_log.execute %></pre>
+  </div>
 </div>
+
