@@ -33,12 +33,15 @@ gem 'mysql2'
  
 # Presenter
 gem 'active_decorator'
- 
+
 # 定数管理
 gem 'rails_config'
  
 # スクレイピング
 gem 'nokogiri'
+
+# ページャ
+gem 'kaminari'
  
 # Seed管理
 gem 'seed-fu'
