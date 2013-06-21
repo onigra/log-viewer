@@ -16,6 +16,6 @@ CREATE TABLE `slow_logs` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO schema_migrations (version) VALUES ('20130620043842');
+INSERT INTO schema_migrations (version) VALUES ('20130620092401');
