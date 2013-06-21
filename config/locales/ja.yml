@@ -1,4 +1,11 @@
 ja:
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "..."
   date:
     abbr_day_names:
     - 日
