@@ -1,21 +1,37 @@
 <%- model_class = SlowLog -%>
+<h2>Slow Queries</h2>
 
 <div class="row-fluid">
-  <div class="span3">
-    <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-  </div>
+  <%= search_form_for @q do |f| %>
 
-  <div class="span6 offset1">
-    <p class="lead">Search For Create Time</p>
-    <div class="form-search">
-      <%= search_form_for @q do |f| %>
-        <%= f.text_field :created_at_gteq, :include_blank => true, :class => "datepicker", :placeholder => "From Date" %> 〜
-        <%= f.text_field :created_at_lteq, :include_blank => true, :class => "datepicker", :placeholder => "To Date" %>
-        <%= f.submit "Search", :class => "btn btn-warning"%>
-      <% end%>
+    <div class="span5">
+      <!-- MATCH -->
+      <h4>Match</h4>
+      <%= f.text_field :server_cont, :include_blank => true, :placeholder => 'DB Server HostName', :class => "input-small" %>
+      <%= f.text_field :user_cont, :include_blank => true, :placeholder => 'Execute User', :class => "input-small" %>
+      <%= f.text_field :host_cont, :include_blank => true, :placeholder => 'App Host Ip' %>
     </div>
-  </div>
+
+    <div class="span5">
+      <!-- NOT -->
+      <h4>Not</h4>
+      <%= f.text_field :server_not_in, :include_blank => true, :placeholder => 'Server', :class => "input-small" %>
+      <%= f.text_field :user_not_in, :include_blank => true, :placeholder => 'User', :class => "input-small" %>
+      <%= f.text_field :host_not_in, :include_blank => true, :placeholder => 'Host' %>
+    </div>
+
+    <div class="span11">
+      <div class="form-search">
+        <h4>Execute Time</h4>
+        <%= f.text_field :created_at_gteq, :include_blank => true, :class => "datepicker", :placeholder => "From Date" %> 〜 
+        <%= f.text_field :created_at_lteq, :include_blank => true, :class => "datepicker", :placeholder => "To Date" %>
+        <%= f.submit "Search", :class => "btn btn-warning" %>
+      </div>
+    </div>
+
+  <% end%>
 </div>
+<br />
 
 <%= paginate @slow_logs %>
 
