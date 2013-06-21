@@ -61,7 +61,7 @@
             <ul class="nav nav-list">
               <li class="nav-header">Servers</li>
               <% @tags.each_pair do |key, val| %>
-                <li><%= link_to "#{key} [#{val}]", "/path1"  %></li>
+                <li><%= link_to "#{key} [#{val}]", "/slow_logs?utf8=✓&q%5Bserver_eq%5D=#{key}&commit=Search"  %></li>
               <% end %>
             </ul>
           </div><!--/.well -->
