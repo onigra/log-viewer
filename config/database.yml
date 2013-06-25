@@ -26,7 +26,7 @@ production:
   reconnect: false
   database: log_viewer_production
   pool: 5
-  host: 192.168.50.16
+  host: localhost
   username: develop
   password: password
   socket: /var/lib/mysql/mysql.sock
