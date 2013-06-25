@@ -51,6 +51,9 @@ gem 'seed-fu'
  
 # asset取得系のログを出力しない
 gem 'quiet_assets'
+
+# メンテナンス画面表示支援
+# gem 'turnout'
  
 group :assets do
   gem 'coffee-rails'
@@ -92,7 +95,15 @@ group :development, :test do
   gem 'powder'
   gem 'rails3-generators'
 end
- 
+
+group :deployment do
+  gem 'capistrano'
+
+  # capistrano拡張
+  gem 'capistrano_colors'
+  # gem 'capistrano-ext'
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
  
@@ -101,9 +112,6 @@ end
  
 # Use unicorn as the app server
 # gem 'unicorn'
- 
-# Deploy with Capistrano
-gem 'capistrano'
  
 # To use debugger
 # gem 'debugger'
