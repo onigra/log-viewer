@@ -59,7 +59,7 @@
         <div class="span2">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header">Servers</li>
+              <li class="nav-header">DB Server Hosts</li>
               <% @tags.each_pair do |key, val| %>
                 <li><%= link_to "#{key} [#{val}]", "/slow_logs?utf8=✓&q%5Bserver_eq%5D=#{key}&commit=Search"  %></li>
               <% end %>
