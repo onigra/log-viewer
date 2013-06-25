@@ -53,7 +53,7 @@ gem 'seed-fu'
 gem 'quiet_assets'
 
 # メンテナンス画面表示支援
-# gem 'turnout'
+gem 'turnout'
  
 group :assets do
   gem 'coffee-rails'
@@ -100,7 +100,6 @@ group :deployment do
   gem 'capistrano'
 
   # capistrano拡張
-  gem 'capistrano_colors'
   # gem 'capistrano-ext'
 end
 

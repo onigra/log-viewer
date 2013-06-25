@@ -1,0 +1,3 @@
+reason: deploying...
+# allowed_paths: 表示を許可するパス(正規表現)
+# allowed_ips: 表示を許可するIP
