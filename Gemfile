@@ -47,7 +47,7 @@ gem 'kaminari'
 gem 'ransack'
  
 # Seed管理
-gem 'seed-fu'
+# gem 'seed-fu'
  
 # asset取得系のログを出力しない
 gem 'quiet_assets'
