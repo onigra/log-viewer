@@ -1,7 +1,3 @@
-#!/usr/bin/env ruby
-require File.expand_path('../../config/application',  __FILE__)
-Rails.application.require_environment!
-
 require "thor"
 
 class PurgeSlowLogs < Thor
