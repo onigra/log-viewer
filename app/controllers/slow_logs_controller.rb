@@ -81,4 +81,26 @@ class SlowLogsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def stock
+    @slow_log = SlowLog.find(params[:id])
+
+    if @slow_log.is_stocked?
+      @slow_log.is_stocked = false
+    else
+      @slow_log.is_stocked = true
+    end
+    @slow_log.updated_at = Time.now
+
+    respond_to do |format|
+      if @slow_log.save
+        format.html { redirect_to session[:return_to], notice: 'is_closed flag successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to session[:return_to], notce: '更新に失敗しました' }
+        format.json { render json: @slow_log.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 end

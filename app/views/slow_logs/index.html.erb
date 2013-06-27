@@ -12,25 +12,35 @@
       </div><!-- accordion-heading -->
     </div><!-- accordion-group -->
 
-    <div id="collapseOne" class="accordion-body collapse">
+    <div id="collapseOne" class="accordion-body collapse in">
       <div class="accordion-inner">
         <%= search_form_for @q, :html => { :class => "form-inline" } do |f| %>
-            <h4>Match</h4>
-            <%= f.text_field :server_cont, :include_blank => true, :placeholder => 'DB Server HostName'  %>
-            <%= f.text_field :user_cont, :include_blank => true, :placeholder => 'Execute User' %>
-            <%= f.text_field :host_cont, :include_blank => true, :placeholder => 'App Host Ip' %>
-            <%= f.text_field :execute_cont, :include_blank => true, :placeholder => 'SQL' %>
 
-            <h4>Not Match</h4>
-            <%= f.text_field :server_not_in, :include_blank => true, :placeholder => 'DB Server HostName' %>
-            <%= f.text_field :user_not_in, :include_blank => true, :placeholder => 'Execute User' %>
-            <%= f.text_field :host_not_in, :include_blank => true, :placeholder => 'App Host Ip' %>
-            <%= f.text_field :execute_not_in, :include_blank => true, :placeholder => 'SQL' %>
+          <h4>Match</h4>
+          <%= f.text_field :server_cont, :include_blank => true, :placeholder => 'DB Server HostName' %>
+          <%= f.text_field :user_cont, :include_blank => true, :placeholder => 'Execute User' %>
+          <%= f.text_field :host_cont, :include_blank => true, :placeholder => 'App Host Ip' %>
+          <%= f.text_field :execute_cont, :include_blank => true, :placeholder => 'SQL', :class => "input-xlarge" %>
 
-            <h4>Execute Time</h4>
-            <%= f.text_field :created_at_gteq, :include_blank => true, :class => "datepicker", :placeholder => "From Date" %> 〜 
-            <%= f.text_field :created_at_lteq, :include_blank => true, :class => "datepicker", :placeholder => "To Date" %>
-            <%= f.submit "Search", :class => "btn btn-warning" %>
+          <h4>Not Match</h4>
+          <%= f.text_field :server_not_in, :include_blank => true, :placeholder => 'DB Server HostName' %>
+          <%= f.text_field :user_not_in, :include_blank => true, :placeholder => 'Execute User' %>
+          <%= f.text_field :host_not_in, :include_blank => true, :placeholder => 'App Host Ip' %>
+          <%= f.text_field :execute_not_in, :include_blank => true, :placeholder => 'SQL', :class => "input-xlarge"%>
+
+          <h4>Execute Time</h4>
+          <%= f.text_field :created_at_gteq, :include_blank => true, :class => "datepicker", :placeholder => "From Date" %>
+          <%= f.text_field :created_at_lteq, :include_blank => true, :class => "datepicker", :placeholder => "To Date" %>
+
+          <h4>Stocked?</h4>
+          <%= f.label :is_stocked_eq, "Yes", :class => "radio" %>
+          <%= f.radio_button :is_stocked_eq, true, :checked => @q.is_stocked_eq %>
+          <%= f.label :is_stocked_eq, "No", :class => "radio"%>
+          <%= f.radio_button :is_stocked_eq, false, :checked => @q.is_stocked_eq %>
+          <%= f.label :is_stocked_eq, "Both", :class => "radio" %>
+          <%= f.radio_button :is_stocked_eq, nil, :checked => @q.is_stocked_eq %>
+
+          <%= f.submit "Search", :class => "btn btn-warning offset7" %>
         <% end%>
       </div><!-- accordion-inner -->
     </div><!-- collapseOne -->
@@ -44,6 +54,7 @@
   <thead>
     <tr>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th><%= model_class.human_attribute_name(:is_stocked) %></th>
       <th><%= model_class.human_attribute_name(:server) %></th>
       <th><%= model_class.human_attribute_name(:user) %></th>
       <th><%= model_class.human_attribute_name(:host) %></th>
@@ -59,6 +70,13 @@
     <% @slow_logs.each do |slow_log| %>
       <tr>
         <td><%= link_to t('.show', :default => t("helpers.links.show")), slow_log_path(slow_log), :class => 'btn btn-info btn-mini' %></td>
+        <td>
+          <% if slow_log.is_stocked? %>
+            <%= link_to "Yes", stock_slow_log_path(slow_log), :class => "btn btn-danger btn-small" %>
+          <% else %>
+            <%= link_to "No", stock_slow_log_path(slow_log), :class => "btn btn-small" %>
+          <% end %>
+        </td>
         <td><%= slow_log.server %></td>
         <td><%= slow_log.user %></td>
         <td><%= slow_log.host %></td>

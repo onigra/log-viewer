@@ -14,7 +14,7 @@ class DeleteOverOneMonthTest < ActiveSupport::TestCase
   test "#データが削除できてて、DBに登録されている残件数が正しいか" do
     @obj.execute
     res = SlowLog.all
-    assert_equal(res.count, 3, "削除が正しく行われていない")
+    assert_equal(res.count, 5, "削除が正しく行われていない")
   end
 
   test "#rails runnerでスクリプトが実行されるか" do

@@ -9,7 +9,6 @@ one:
   rows_sent: 1
   rows_examined: 1
   execute: MyText
-  is_stocked: true
 
 two:
   server: MyString
@@ -54,3 +53,28 @@ five:
   execute: MyText
   created_at: "2012-10-1 00:00:00"
   is_stocked: true
+
+six:
+  id: 6
+  server: MyString
+  user: MyString
+  host: MyString
+  query_time: 1.5
+  lock_time: 1.5
+  rows_sent: 1
+  rows_examined: 1
+  execute: MyText
+  is_stocked: true
+
+seven:
+  id: 7
+  server: MyString
+  user: MyString
+  host: MyString
+  query_time: 1.5
+  lock_time: 1.5
+  rows_sent: 1
+  rows_examined: 1
+  execute: MyText
+  is_stocked: false
+
