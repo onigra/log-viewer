@@ -4,7 +4,7 @@ Rails.application.require_environment!
 
 require "thor"
 
-class PurgeSlowLogs< Thor
+class PurgeSlowLogs < Thor
   desc "check", "check over one month record"
   def check
     list = SlowLog.over_one_month
@@ -22,9 +22,9 @@ class PurgeSlowLogs< Thor
     list = SlowLog.over_one_month
     list.each do |l|
       logger.info(l.inspect) 
-      l.destroy
     end
 
+    SlowLog.over_one_month.delete_all
     logger.info("\nDelete End over one month \n")
   end
 end
