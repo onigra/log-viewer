@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130620092401) do
+ActiveRecord::Schema.define(:version => 20130627033758) do
 
   create_table "slow_logs", :force => true do |t|
     t.string   "server"
@@ -22,8 +22,9 @@ ActiveRecord::Schema.define(:version => 20130620092401) do
     t.integer  "rows_sent"
     t.integer  "rows_examined"
     t.text     "execute"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.boolean  "is_stocked",    :default => false
   end
 
 end

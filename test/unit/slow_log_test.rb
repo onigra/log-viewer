@@ -1,7 +1,8 @@
-require 'test_helper'
+require_relative '../test_helper'
 
 class SlowLogTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "#created_atが1ヵ月以上前かつis_stocked = falseのレコードが取得できる" do
+    res = SlowLog.over_one_month
+    assert_equal 3, res.size
+  end
 end
