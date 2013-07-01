@@ -83,6 +83,7 @@ class SlowLogsController < ApplicationController
   end
 
   def stock
+    return redirect_to '/404.html' unless request.xhr?
     @slow_log = SlowLog.find(params[:id])
 
     if @slow_log.is_stocked?
@@ -94,10 +95,10 @@ class SlowLogsController < ApplicationController
 
     respond_to do |format|
       if @slow_log.save
-        format.html { redirect_to session[:return_to], notice: 'is_closed flag successfully updated.' }
-        format.json { head :no_content }
+        format.js { @slow_log }
+        format.json { @slow_log }
       else
-        format.html { redirect_to session[:return_to], notce: '更新に失敗しました' }
+        format.js { render :action => "alert/error" }
         format.json { render json: @slow_log.errors, status: :unprocessable_entity }
       end
     end

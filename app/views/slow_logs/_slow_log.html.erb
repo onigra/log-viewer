@@ -1,0 +1,19 @@
+<tr id="slow_log_table">
+  <td><%= link_to t('.show', :default => t("helpers.links.show")), slow_log_path(slow_log), :class => 'btn btn-info btn-mini' %></td>
+  <td>
+    <% if slow_log.is_stocked? %>
+      <%= link_to "Yes", stock_slow_log_path(slow_log), :class => "btn btn-danger btn-small", :remote => true %>
+    <% else %>
+      <%= link_to "No", stock_slow_log_path(slow_log), :class => "btn btn-small", :remote => true %>
+    <% end %>
+  </td>
+  <td><%= slow_log.server %></td>
+  <td><%= slow_log.user %></td>
+  <td><%= slow_log.host %></td>
+  <td><%= slow_log.query_time %></td>
+  <td><%= slow_log.lock_time %></td>
+  <td><%= slow_log.rows_sent %></td>
+  <td><%= slow_log.rows_examined %></td>
+  <td><pre class="prettyprint"><%= slow_log.execute %></pre></td>
+  <td><%= slow_log.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+</tr>

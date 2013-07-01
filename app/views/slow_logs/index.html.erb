@@ -1,4 +1,14 @@
 <%- model_class = SlowLog -%>
+
+<div id="is_closed_flag_update_success" class="alert alert-info" style="display:none">
+  <button class="close" data-dismiss="alert">&times;</button>
+  <strong>is_stocked flag was updated!</strong>
+</div>
+<div id="is_closed_flag_update_error" class="alert alert-error" style="display:none">
+  <button class="close" data-dismiss="alert">&times;</button>
+  <strong>error! is_stocked flag was not updated!</strong>
+</div>
+
 <h2>Slow Queries</h2>
 
 <div class="row-fluid">
@@ -67,29 +77,8 @@
     </tr>
   </thead>
   <tbody>
-    <% @slow_logs.each do |slow_log| %>
-      <tr>
-        <td><%= link_to t('.show', :default => t("helpers.links.show")), slow_log_path(slow_log), :class => 'btn btn-info btn-mini' %></td>
-        <td>
-          <% if slow_log.is_stocked? %>
-            <%= link_to "Yes", stock_slow_log_path(slow_log), :class => "btn btn-danger btn-small" %>
-          <% else %>
-            <%= link_to "No", stock_slow_log_path(slow_log), :class => "btn btn-small" %>
-          <% end %>
-        </td>
-        <td><%= slow_log.server %></td>
-        <td><%= slow_log.user %></td>
-        <td><%= slow_log.host %></td>
-        <td><%= slow_log.query_time %></td>
-        <td><%= slow_log.lock_time %></td>
-        <td><%= slow_log.rows_sent %></td>
-        <td><%= slow_log.rows_examined %></td>
-        <td><pre class="prettyprint"><%= slow_log.execute %></pre></td>
-        <td><%= slow_log.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
-      </tr>
-    <% end %>
+    <%= render @slow_logs %>
   </tbody>
 </table>
 
 <%= paginate @slow_logs %>
-
