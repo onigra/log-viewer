@@ -3,8 +3,7 @@ require_relative '../test_helper'
 class SlowLogsControllerTest < ActionController::TestCase
   setup do
     @slow_log = slow_logs(:one)
-    @stock_flag_is_true = SlowLog.find(6)
-    @stock_flag_is_false = SlowLog.find(7)
+    @stock_flag_is_true = slow_logs(:six)
   end
 
   test "should get index" do
@@ -67,44 +66,10 @@ class SlowLogsControllerTest < ActionController::TestCase
     assert_redirected_to slow_logs_path
   end
 
-  test "is_stockedをtrueにする" do
-    session[:return_to] = "http://log-viewer.dev/"
-
-    post :stock, id: @stock_flag_is_true, slow_log: {
-      id:            @stock_flag_is_true.id,
-      execute:       @stock_flag_is_true.execute,
-      host:          @stock_flag_is_true.host,
-      lock_time:     @stock_flag_is_true.lock_time,
-      query_time:    @stock_flag_is_true.query_time,
-      rows_examined: @stock_flag_is_true.rows_examined,
-      rows_sent:     @stock_flag_is_true.rows_sent,
-      server:        @stock_flag_is_true.server,
-      user:          @stock_flag_is_true.user,
-      is_stocked:    @stock_flag_is_true.is_stocked
-    }
-
-    assert_response :redirect
-    assert_equal true, @stock_flag_is_true.is_stocked
-  end
-
   test "is_stockedをfalseにする" do
-    session[:return_to] = "http://log-viewer.dev/"
-
-    post :stock, id: @stock_flag_is_false, slow_log: {
-      id:            @stock_flag_is_false.id,
-      execute:       @stock_flag_is_false.execute,
-      host:          @stock_flag_is_false.host,
-      lock_time:     @stock_flag_is_false.lock_time,
-      query_time:    @stock_flag_is_false.query_time,
-      rows_examined: @stock_flag_is_false.rows_examined,
-      rows_sent:     @stock_flag_is_false.rows_sent,
-      server:        @stock_flag_is_false.server,
-      user:          @stock_flag_is_false.user,
-      is_stocked:    @stock_flag_is_false.is_stocked
-    }
-
-    assert_response :redirect
-    assert_equal false, @stock_flag_is_false.is_stocked
+    xhr :get, :stock, :id => @stock_flag_is_true.id
+    assert_equal false, @stock_flag_is_true.reload.is_stocked
+    assert_response :success
   end
 
 end
