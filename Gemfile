@@ -2,6 +2,7 @@ source 'https://rubygems.org'
  
 gem 'rails', '3.2.13'
 gem 'rake'
+gem 'mysql2'
  
 # Bootstrap
 gem 'less-rails'
@@ -26,32 +27,15 @@ gem 'jquery-rails'
 gem 'jquery-cookie-rails' # jquery-cookie
 gem 'json'
  
-# MySQL
-gem 'mysql2'
- 
-# Presenter
-gem 'active_decorator'
 
-# 定数管理
-gem 'rails_config'
- 
-# スクレイピング
-gem 'nokogiri'
-
-# ページャ
-gem 'kaminari'
-
-# 検索機能
-gem 'ransack'
- 
-# Seed管理
-# gem 'seed-fu'
- 
-# asset取得系のログを出力しない
-gem 'quiet_assets'
-
-# メンテナンス画面表示支援
-gem 'turnout'
+gem 'active_decorator' # Presenter
+gem 'rails_config'     # 定数管理
+gem 'nokogiri'         # スクレイピング
+gem 'kaminari'         # ページャ
+gem 'ransack'          # 検索機能
+# gem 'seed-fu'        # Seed管理
+gem 'quiet_assets'     # asset取得系のログを出力しない
+gem 'turnout'          # メンテナンス画面表示支援
  
 group :assets do
   gem 'coffee-rails'
@@ -62,31 +46,15 @@ group :assets do
 end
  
 group :development do
-  # ドキュメント生成
-  gem 'yard'
- 
-  # エラー画面をわかりやすく整形してくれる
-  gem 'better_errors'
- 
-  # better_errorsの画面上にirb/pry(PERL)を表示する
-  gem 'binding_of_caller'
- 
-  # フッターにデバック情報を表示
-  gem 'rails-footnotes', '>= 3.7.9'
- 
-  # N+1問題の警告を出力
-  gem 'bullet'
- 
+  gem 'yard'                        # ドキュメント生成
+  gem 'better_errors'               # エラー画面をわかりやすく整形してくれる
+  gem 'binding_of_caller'           # better_errorsの画面上にirb/pry(PERL)を表示する
+  gem 'rails-footnotes', '>= 3.7.9' # フッターにデバック情報を表示
+  gem 'bullet'                      # N+1問題の警告を出力
   gem 'pry-rails'
- 
-  # ブラウザ上でルーティングが確認できる
-  gem 'sextant'
- 
-  # ブラウザ上で送信メールを確認できる
-  gem 'mail_view'
- 
-  # 開発環境のメールの送信を抑制できる
-  gem 'letter_opener'
+  gem 'sextant'                     # ブラウザ上でルーティングが確認できる
+  gem 'mail_view'                   # ブラウザ上で送信メールを確認できる
+  gem 'letter_opener'               # 開発環境のメールの送信を抑制できる
 end
  
 group :development, :test do
@@ -96,9 +64,7 @@ end
 
 group :deployment do
   gem 'capistrano'
-
-  # capistrano拡張
-  # gem 'capistrano-ext'
+  # gem 'capistrano-ext' # capistrano拡張
 end
 
 # To use ActiveModel has_secure_password
