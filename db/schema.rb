@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130627033758) do
+ActiveRecord::Schema.define(:version => 20130702030706) do
 
   create_table "slow_logs", :force => true do |t|
     t.string   "server"
@@ -26,5 +26,10 @@ ActiveRecord::Schema.define(:version => 20130627033758) do
     t.datetime "updated_at",                       :null => false
     t.boolean  "is_stocked",    :default => false
   end
+
+  add_index "slow_logs", ["created_at"], :name => "ix04_slow_logs"
+  add_index "slow_logs", ["host"], :name => "ix03_slow_logs"
+  add_index "slow_logs", ["server"], :name => "ix01_slow_logs"
+  add_index "slow_logs", ["user"], :name => "ix02_slow_logs"
 
 end
