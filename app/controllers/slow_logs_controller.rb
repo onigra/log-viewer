@@ -5,47 +5,39 @@ class SlowLogsController < ApplicationController
     @tags = SlowLog.group("server").count
   end
 
-  # GET /slow_logs
-  # GET /slow_logs.json
   def index
     @q = SlowLog.search(params[:q])
     @slow_logs = @q.result.order("id DESC").page(params[:page])
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.js if request.xhr?
+      format.html
       format.json { render json: @slow_logs }
     end
   end
 
-  # GET /slow_logs/1
-  # GET /slow_logs/1.json
   def show
     @slow_log = SlowLog.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.json { render json: @slow_log }
     end
   end
 
-  # GET /slow_logs/new
-  # GET /slow_logs/new.json
   def new
     @slow_log = SlowLog.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       format.json { render json: @slow_log }
     end
   end
 
-  # GET /slow_logs/1/edit
   def edit
     @slow_log = SlowLog.find(params[:id])
   end
 
-  # POST /slow_logs
-  # POST /slow_logs.json
   def create
     @slow_log = SlowLog.new(params[:slow_log])
 
@@ -60,8 +52,6 @@ class SlowLogsController < ApplicationController
     end
   end
 
-  # PUT /slow_logs/1
-  # PUT /slow_logs/1.json
   def update
     @slow_log = SlowLog.find(params[:id])
 
@@ -76,8 +66,6 @@ class SlowLogsController < ApplicationController
     end
   end
 
-  # DELETE /slow_logs/1
-  # DELETE /slow_logs/1.json
   def destroy
     @slow_log = SlowLog.find(params[:id])
     @slow_log.destroy

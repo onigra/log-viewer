@@ -39,7 +39,7 @@
     
         <div id="collapseOne" class="accordion-body collapse">
           <div class="accordion-inner">
-            <%= search_form_for @q, :html => { :class => "form-inline" } do |f| %>
+            <%= search_form_for @q, :url => slow_logs_path, :remote => true, :html => { :class => "form-inline" } do |f| %>
 
               <h4>Match</h4>
               <%= f.text_field :server_cont, :include_blank => true, :placeholder => 'DB Server HostName' %>
@@ -48,10 +48,10 @@
               <%= f.text_field :execute_cont, :include_blank => true, :placeholder => 'SQL', :class => "input-xlarge" %>
     
               <h4>Not Match</h4>
-              <%= f.text_field :server_not_in, :include_blank => true, :placeholder => 'DB Server HostName' %>
-              <%= f.text_field :user_not_in, :include_blank => true, :placeholder => 'Execute User' %>
-              <%= f.text_field :host_not_in, :include_blank => true, :placeholder => 'App Host Ip' %>
-              <%= f.text_field :execute_not_in, :include_blank => true, :placeholder => 'SQL', :class => "input-xlarge"%>
+              <%= f.text_field :server_not_cont, :include_blank => true, :placeholder => 'DB Server HostName' %>
+              <%= f.text_field :user_not_cont, :include_blank => true, :placeholder => 'Execute User' %>
+              <%= f.text_field :host_not_cont, :include_blank => true, :placeholder => 'App Host Ip' %>
+              <%= f.text_field :execute_not_cont, :include_blank => true, :placeholder => 'SQL', :class => "input-xlarge"%>
     
               <h4>Execute Time</h4>
               <%= f.text_field :created_at_gteq, :include_blank => true, :class => "datepicker", :placeholder => "From Date" %>
@@ -91,7 +91,7 @@
           <th><%= model_class.human_attribute_name(:created_at) %></th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="slow_logs_tbody">
         <%= render @slow_logs %>
       </tbody>
     </table>
