@@ -1,4 +1,10 @@
 class SlowLogsController < ApplicationController
+  before_filter :set_tag_list
+
+  def set_tag_list
+    @tags = SlowLog.group("server").count
+  end
+
   # GET /slow_logs
   # GET /slow_logs.json
   def index
