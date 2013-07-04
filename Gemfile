@@ -23,8 +23,8 @@ gem 'simple_form'
 gem 'country_select'
  
 # jQuery/json
-gem 'jquery-rails'
-gem 'jquery-cookie-rails' # jquery-cookie
+gem 'jquery-rails', '~> 3.0.1'
+gem 'jquery-cookie-rails', :git => "https://github.com/RyanScottLewis/jquery-cookie-rails.git"
 gem 'json'
  
 
